@@ -108,12 +108,6 @@ $old_lastline        = @$_POST['lastline'];
 
 header('Content-type: application/json');
 
-if ( ! csrf_verify() ) {
-    $return['error'] = __( 'Please refresh the page.' );
-    echo json_encode( $return );
-    die();
-}
-
 if ( ! isset( $files[$file_id] ) ) {
     $return['error'] = sprintf( __( 'File ID <code>%s</code> does not exist, please review your configuration file and stop playing!' ) , $file_id );
     echo json_encode( $return );
